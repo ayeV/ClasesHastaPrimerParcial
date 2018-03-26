@@ -20,54 +20,51 @@ int main()
     int contMujer = 0;
 
     for(i = 0; i<4; i++){
-        printf("Ingrese la nota\n");
+        printf("Ingrese la nota: ");
         scanf("%d", &nota);
         while(!(nota >=0 && nota <=10)){
-            printf("Error, reingrese nota\n");
+            printf("\nError, reingrese nota: ");
             scanf("%d", &nota);
 
         }
         acumuladorNotas = acumuladorNotas + nota;
-        printf("Ingrese sexo\n");
+        printf("\nIngrese sexo: ");
         fflush(stdin);
         scanf("%c", &sexo);
         while(sexo != 'm' && sexo != 'f'){
-            printf("Reingrese sexo\n");
+            printf("\nReingrese sexo: ");
             fflush(stdin);
             scanf("%c", &sexo);
             }
-        printf("Ingrese edad\n");
+
+        printf("\nIngrese edad: ");
         scanf("%d", &edad);
         while(edad <=0){
-            printf("Error, reingrese edad\n");
+            printf("\nError, reingrese edad: ");
             scanf("%d", &edad);
         }
-        if(nota<notaBaja ){
+        if(nota<notaBaja || flag == 0){
             notaBaja = nota;
             sexoBajo = sexo;
+        }
+
+        if(edad < minEdad || flag ==0){
+            minEdad = edad;
+           minSexo = sexo;
+           minNota = nota;
+           flag =1;
         }
 
         if( sexo == 'm' && edad >18 && nota>= 6){
             contVaronesMas18++;
 
         }
-        if(edad < minEdad){
-            minEdad = edad;
-           minSexo = sexo;
-           minNota = nota;
-           flag =1;
-        }
         if(sexo == 'f' && contMujer ==  0){
             edadMujer = edad;
             notaMujer = nota;
             contMujer++;
         }
-
-
-
-
-
-    }
+}
     promedio = (float)acumuladorNotas/5;
 
     printf("\nPromedio: %.2f\n", promedio);
@@ -82,9 +79,6 @@ int main()
        printf("\nEdad de la primer mujer: %d y su nota: %d", edadMujer, notaMujer);
 
     }
-
-
-
 
 
 
