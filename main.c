@@ -2,61 +2,91 @@
 #include <stdlib.h>
 
 int main()
-{
-    int vendedor;
+{   int i;
+    int acumuladorNotas = 0;
+    int nota;
+    char sexo;
+    int edad;
+    float promedio;
+    int notaBaja;
+    char sexoBajo;
+    int contVaronesMas18 = 0;
+    int minEdad;
+    char minSexo;
+    int minNota;
+    int flag = 0;
+    int notaMujer;
+    int edadMujer;
+    int contMujer = 0;
 
-    int importe;
-    char respuesta;
-    int vendedor1, vendedor2, vendedor3;
-    int i= 0;
+    for(i = 0; i<4; i++){
+        printf("Ingrese la nota\n");
+        scanf("%d", &nota);
+        while(!(nota >=0 && nota <=10)){
+            printf("Error, reingrese nota\n");
+            scanf("%d", &nota);
 
-    //float ganancia1, ganancia2, ganancia3;
-
-    do{
-        printf("Ingrese el importe\n");
-        scanf("%d", &importe);
-        printf("Ingrese el numero de vendedor\n");
+        }
+        acumuladorNotas = acumuladorNotas + nota;
+        printf("Ingrese sexo\n");
         fflush(stdin);
-        scanf("%d",&vendedor);
-
-        switch(vendedor){
-            case 1:
-                vendedor1= vendedor1 + importe;
-
-
-
-                break;
-            case 2:
-                vendedor2 = vendedor2 + importe;
-
-
-
-                break;
-            case 3:
-
-               vendedor3 = vendedor3 + importe;
-
-
-
-
-               break;
+        scanf("%c", &sexo);
+        while(sexo != 'm' && sexo != 'f'){
+            printf("Reingrese sexo\n");
+            fflush(stdin);
+            scanf("%c", &sexo);
+            }
+        printf("Ingrese edad\n");
+        scanf("%d", &edad);
+        while(edad <=0){
+            printf("Error, reingrese edad\n");
+            scanf("%d", &edad);
+        }
+        if(nota<notaBaja ){
+            notaBaja = nota;
+            sexoBajo = sexo;
         }
 
-        printf("Desea continuar?\n");
-        fflush(stdin);
-        scanf("%c", &respuesta);
-        i++;
+        if( sexo == 'm' && edad >18 && nota>= 6){
+            contVaronesMas18++;
 
-    }while(respuesta == 's');
+        }
+        if(edad < minEdad){
+            minEdad = edad;
+           minSexo = sexo;
+           minNota = nota;
+           flag =1;
+        }
+        if(sexo == 'f' && contMujer ==  0){
+            edadMujer = edad;
+            notaMujer = nota;
+            contMujer++;
+        }
 
-    /*ganancia1 = (float)(5*vendedor1)/100;
-    ganancia2 = (float)(5*vendedor2)/100;
-    ganancia3 = (float)(5*vendedor3)/100;*/
 
 
-    printf("Vendedor 1 gano: $%d\n", vendedor1);
-    printf("Vendedor 2 gano: $%d\n", vendedor2);
-    printf("Vendedor 3 gano: $%d", vendedor3);
+
+
+    }
+    promedio = (float)acumuladorNotas/5;
+
+    printf("\nPromedio: %.2f\n", promedio);
+    printf("\nNota mas baja: %d  y sexo de esa persona es: %c", notaBaja, sexoBajo);
+    printf("\nCantidad de varones mayores a 18 que sacaron igual o mas de 6: %d", contVaronesMas18);
+    printf("\nSexo de la persona mas joven: %c y su nota es: %d", minSexo, minNota);
+
+    if(contMujer == 0){
+        printf("\nNo ingreso ninguna mujer\n");
+    }
+    else {
+       printf("\nEdad de la primer mujer: %d y su nota: %d", edadMujer, notaMujer);
+
+    }
+
+
+
+
+
 
     return 0;
 }
