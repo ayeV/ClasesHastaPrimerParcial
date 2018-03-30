@@ -7,4 +7,6 @@ float division (float, float);
 float multiplicacion(float, float);
 int factorial(int);
 
+
+
 #endif // FUNCIONES_H_INCLUDED
