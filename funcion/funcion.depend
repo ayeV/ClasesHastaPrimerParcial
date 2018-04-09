@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1523275315 source:c:\users\alumno\desktop\funcion\ordenarmostrar.c
+1523279991 source:c:\users\alumno\desktop\funcion\ordenarmostrar.c
 	<stdio.h>
 
-1523274880 source:c:\users\alumno\desktop\funcion\main.c
+1523281940 source:c:\users\alumno\desktop\funcion\main.c
 	<stdio.h>
 	<stdlib.h>
 	"ordenarmostrar.h"
 
-1523274720 c:\users\alumno\desktop\funcion\ordenarmostrar.h
+1523279840 c:\users\alumno\desktop\funcion\ordenarmostrar.h
 
