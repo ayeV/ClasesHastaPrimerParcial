@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #define CANT 2
 int main()
+    //array de caracteres
 {   int legajo[CANT], sueldo[CANT];
     char nombre[CANT][31];
     int i;
