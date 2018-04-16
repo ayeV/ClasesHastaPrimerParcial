@@ -14,6 +14,7 @@ typedef struct
 
 void mostrarEmpleado(eEmpleado emp);
 void mostrarEmpleados(eEmpleado vec[], int tam);
+void ordenarEmpleados(eEmpleado[], int tam);
 
 int main()
 {
@@ -38,6 +39,10 @@ int main()
 
 
     mostrarEmpleados(plantel,3);
+
+    ordenarEmpleados(plantel, 3);
+
+    mostrarEmpleados(plantel,3);
     return 0;
 }
 
@@ -59,3 +64,23 @@ void mostrarEmpleado(eEmpleado emp){
 
 
 }
+//ordena por nombre
+void ordenarEmpleados(eEmpleado vec[], int tam){
+    int i;
+    eEmpleado aux;
+    int j;
+    for(i=0; i<tam-1; i++){
+        for(j=i+1;j<tam; j++ ){
+            if(strcmp(vec[i].nombre, vec[j].nombre) > 0){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+        }
+
+    }
+
+
+
+}
+
